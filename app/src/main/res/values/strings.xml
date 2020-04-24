@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Smart Text Extractor</string>
+    <string name="app_name">XOCR</string>
     <string name="click_choose_image_button_nto_get_the_text_from_image">Click \'Choose Image\' Button to get the text from the image.</string>
     <string name="choose_image">CHOOSE IMAGE</string>
 </resources>

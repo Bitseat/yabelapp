@@ -29,10 +29,14 @@ public class RecordResult extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.office_form);
         String filename = getIntent().getStringExtra("content");
-        name = (TextView) findViewById(R.id.nameTv);
-        date = (TextView) findViewById(R.id.dateTv);
+        name = (TextView) findViewById(R.id.payto);
+        date = (TextView) findViewById(R.id.date);
+        amount = (TextView) findViewById(R.id.amount);
+        amount_figure = (TextView) findViewById(R.id.amount_figure);
         name.setText("Hana sinishaw");
-        date.setText(filename);
+        date.setText("20200101");
+        amount.setText("FIVE THOUSAND SIX HUNDRED ONLY");
+        amount_figure.setText("5,600.0");
 
         //Button saveButton = (Button) findViewById(R.id.btnSv);
     }

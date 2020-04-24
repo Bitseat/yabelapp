@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "888214168321",
+    "firebase_url": "https://yabelapp.firebaseio.com",
+    "project_id": "yabelapp",
+    "storage_bucket": "yabelapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:888214168321:android:2e04fa45ac74544f763100",
+        "android_client_info": {
+          "package_name": "com.excellathon.yabelapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "888214168321-8pfmmu331ajmnu5unhaarqlevm2uog1e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD2NSmaDbvRYeO7ABz5w11imyqYApykaas"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "888214168321-8pfmmu331ajmnu5unhaarqlevm2uog1e.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
