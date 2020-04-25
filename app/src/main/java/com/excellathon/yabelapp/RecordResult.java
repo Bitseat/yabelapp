@@ -11,6 +11,10 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.chaquo.python.PyObject;
+import com.chaquo.python.Python;
+import com.chaquo.python.android.AndroidPlatform;
+
 import java.io.FileInputStream;
 
 public class RecordResult extends AppCompatActivity {
@@ -28,14 +32,24 @@ public class RecordResult extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.office_form);
+
+        if (! Python.isStarted()) {
+            Python.start(new AndroidPlatform(this));
+        }
+
+        Python py = Python.getInstance();
+        PyObject pyf = py.getModule("ocr_preprocess");
+
+        PyObject obj = pyf.callAttr("test");
+
         String filename = getIntent().getStringExtra("content");
         name = (TextView) findViewById(R.id.payto);
         date = (TextView) findViewById(R.id.date);
         amount = (TextView) findViewById(R.id.amount);
         amount_figure = (TextView) findViewById(R.id.amount_figure);
-        name.setText("Hana sinishaw");
-        date.setText("20200101");
-        amount.setText("FIVE THOUSAND SIX HUNDRED ONLY");
+        name.setText(obj.asList().get(0).toString());
+        date.setText(obj.asList().get(1).toString());
+        amount.setText(obj.asList().get(2).toString());
         amount_figure.setText("5,600.0");
 
         //Button saveButton = (Button) findViewById(R.id.btnSv);
