@@ -1,10 +1,7 @@
 import re 
 
-def test():
-    s = "BANK OF A B YS SIN I A US Embassy Machine Readable Visa Fee Receipt For Non-Immigrant Visa Applications  Date 20200101: Receipt No : TT2000 Credit AC NO :46539 Branch :OLYMPIA BRANCH Payment Identification No. (PIN) 6133416588546 Name of Applicant : BEHAILU DEREJE DEKEBA )     Birr :FIVE THOUSAND SIX HUNDRED ONLY Birr 5,600.0 Prepared by   t  ** * ****** ********** *****  Receiving Teller     Not Refendabl e **********  *  Retain for historic  BANX OF &3YS3INIA  NA RANCH"
-    res = re.findall(r"[\w']+", s)
-    print(res)
-
+def test(filename):
+    res = re.findall(r"[\w']+", filename)
     split_word1 = "Name of Applicant"
     split_word2 = "Date"
     split_word3 = "Birr"
@@ -15,6 +12,11 @@ def test():
     str_res2 = listToStr.partition(split_word2)[2]
     str_res3 = listToStr.partition(split_word3)[2]
 
+    res2 = re.findall(r"[\w']+", str_res3)
+    listToStr2 = ' '.join([str(elem) for elem in res2 ])
+    str_res4 = listToStr2.partition(split_word3)[2]
+
+    print(listToStr2)
     list1 = list(str_res1.split(" "))
     list1 = list1[0:4]
     list1 = ' '.join([str(elem) for elem in list1])
@@ -27,14 +29,16 @@ def test():
     list3 = list3[0:6]
     list3 = ' '.join([str(elem) for elem in list3])
 
+    list4 = list(str_res4.split(" "))
+    list4 = list4[0:3]
+    list4 = ' '.join([str(elem) for elem in list4])
+
     x = split_word1 + ":" + list1
     y = split_word2 + ":" + list2
     z = split_word3 + ":" + list3
+    a = split_word3 + ":" + list4
 
-    print("%s : %s " % (split_word1,list1))
-    print("%s : %s " % (split_word2,list2))
-    print("%s : %s " % (split_word3,list3))
-    return list1, list2, list3
+    return list1, list2, list3, list4
 
 
 

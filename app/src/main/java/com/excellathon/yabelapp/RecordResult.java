@@ -32,6 +32,7 @@ public class RecordResult extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.office_form);
+        String filename = getIntent().getStringExtra("content");
 
         if (! Python.isStarted()) {
             Python.start(new AndroidPlatform(this));
@@ -40,9 +41,8 @@ public class RecordResult extends AppCompatActivity {
         Python py = Python.getInstance();
         PyObject pyf = py.getModule("ocr_preprocess");
 
-        PyObject obj = pyf.callAttr("test");
+        PyObject obj = pyf.callAttr("test", filename);
 
-        String filename = getIntent().getStringExtra("content");
         name = (TextView) findViewById(R.id.payto);
         date = (TextView) findViewById(R.id.date);
         amount = (TextView) findViewById(R.id.amount);
@@ -50,7 +50,7 @@ public class RecordResult extends AppCompatActivity {
         name.setText(obj.asList().get(0).toString());
         date.setText(obj.asList().get(1).toString());
         amount.setText(obj.asList().get(2).toString());
-        amount_figure.setText("5,600.0");
+        amount_figure.setText(obj.asList().get(3).toString());
 
         //Button saveButton = (Button) findViewById(R.id.btnSv);
     }
